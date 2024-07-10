@@ -1,0 +1,50 @@
+html, h1, h2, h3 {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "slnt" 0;
+}
+
+nav > ul {
+    display: flex;
+    
+}
+
+nav > ul > li {
+    list-style: none;
+}
+
+nav > ul > li > a {
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 5px;
+    color: black;
+}
+
+nav > ul > li:nth-child(7) {
+    font-weight: bold;
+}
+
+nav > ul > li > a:hover {
+    background-color: rgb(224, 224, 224);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.googleLogo {
+    max-width: 200px;
+    
+}
+
+main {
+    margin: 60px 10px;
+}
+
+gmp-map {
+    border: 1px solid black;
+}

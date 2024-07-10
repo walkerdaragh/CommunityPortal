@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Map</title>
+    <link rel="stylesheet" href="styleLocalMap.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/localNews.html">Local News</a></li>
+            <li><a href="/announcements.html">Announcements</a></li>
+            <li><a href="#">Marketplace</a></li>
+            <li><a href="#">Community Calendar</a></li>
+            <li><a href="#">Suspicious Activity</a></li>
+            <li><a href="/localMap.html">Local Map</a></li>
+        </ul>
+    </nav>
+    <main>
+        <img src="/Google-Maps-Logo-700x394.png" alt="google logo" class="googleLogo">
+        <gmp-map center="53.38894586087352, -6.19921616664996" zoom="13" map-id="DEMO_MAP_ID" style="height: 500px; width: 700px;"></gmp-map>
+    </main>
+
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCscioAbzvsTihuAJM0-y9OUWdNjzetOcQ&loading=async&libraries=maps,marker&v=beta" defer>
+    </script>
+</body>
+</html>

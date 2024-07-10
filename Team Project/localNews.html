@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local News</title>
+    <link rel="stylesheet" href="styleLocalNews.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/localNews.html">Local News</a></li>
+            <li><a href="/announcements.html">Announcements</a></li>
+            <li><a href="#">Marketplace</a></li>
+            <li><a href="#">Community Calendar</a></li>
+            <li><a href="#">Suspicious Activity</a></li>
+            <li><a href="/localMap.html">Local Map</a></li>
+        </ul>
+    </nav>
+    <main></main>
+    <script>
+        const { getJson } = require("serpapi");
+
+        getJson({
+        api_key: "740b41607b63652249dea88573fe9c7c5fafd1132fa56a4db4c875251d32f8bd",
+        engine: "google_news",
+        gl: "ireland",
+        q: "Coolock"
+        }, (json) => {
+        console.log(json);
+        });
+
+    </script>
+</body>
+</html>
