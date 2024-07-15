@@ -12,8 +12,6 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         return;
     }
 
-    // Here, you would send a request to the server to register the user
-    // For the sake of this example, we'll just display a success message
     message.style.color = 'green';
     message.textContent = 'Registration successful!';
 });
