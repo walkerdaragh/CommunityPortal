@@ -1,0 +1,92 @@
+html, h1, h2, h3 {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings: "slnt" 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.registration-container {
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 5px;
+    min-width: 300px;
+    max-width: 800px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+h2 {
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-top: 0;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px !important;
+}
+
+button:hover {
+    background-color: #000000;
+}
+
+p#message {
+    text-align: center;
+    color: red;
+}
+
+h2 > span {
+    font-weight: bolder;
+}
+
+a {
+    text-decoration: none !important;
+    padding: 15px !important;
+    margin-top: 5px !important;
+    color: white !important;
+    background-color: black !important;
+    border-radius: 5px !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    display: block !important;
+    text-align: center !important;
+}
+
+form {
+    width: 80%;
+}
