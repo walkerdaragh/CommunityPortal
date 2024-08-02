@@ -118,3 +118,28 @@ td > span {
 tr > td:nth-child(5) {
     padding-right: 0;
 }
+
+.messageDisplay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0, 0.9);
+    overflow-x: hidden;
+    color: white;
+
+}
+
+
+
+#buttonClose {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    color: white;
+    visibility: hidden;
+}
+
