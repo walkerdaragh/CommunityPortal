@@ -119,8 +119,8 @@ tr > td:nth-child(5) {
     padding-right: 0;
 }
 
-.messageDisplay {
-    height: 100%;
+#overlay {
+    /* height: 100%;
     width: 0;
     position: fixed;
     z-index: 1;
@@ -128,18 +128,47 @@ tr > td:nth-child(5) {
     top: 0;
     background-color: rgba(0,0,0, 0.9);
     overflow-x: hidden;
-    color: white;
-
-}
-
-
-
-#buttonClose {
-    position: absolute;
-    top: 20px;
-    right: 45px;
-    font-size: 60px;
-    color: white;
+    color: white; */
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    color: black;
+    background-color: rgba(0,0,0, 0.9);
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     visibility: hidden;
 }
+
+#message {
+    width: 40%;
+    min-height: 30%;
+    background-color: rgb(201, 201, 201);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding: 3%;
+}
+
+
+
+#closeButton {
+    font-size: 40px;
+    color: black;
+    text-align: end;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: grey;
+}
+
 

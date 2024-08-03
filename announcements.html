@@ -27,7 +27,7 @@
             <input type="text" placeholder="Search...">
             <button>Filter</button>
         </div>
-        <table>
+        <table id="tb">
             <tr>
                 <th>Title</th>
                 <th>Category</th>
@@ -36,92 +36,186 @@
                 <th></th>
             </tr>
             <tr>
-                
-                <td><a href="#" onclick="infoDisplay(0)">Cool events happening</a></td>
-                <a href="#" id="buttonClose" onclick="infoClose()">&times;</a>
-                <td>Event</td>
-                <td><span>Dec 5</span></td>
-                <td><a href="#" class="avatar"></a></td>
-                <td><a href="#" class="menu"></a></td>
-            </tr>
-            <tr>
-                <td><a href="#" onclick="infoDisplay(1)">Brad's Birtddat Party!</a></td>
-                <td>Party</td>
-                <td><span>Dec 13</span></td>
-                <td><a href="#" class="avatar"></a></td>
-                <td><a href="#" class="menu"></a></td>
-            </tr>
-            <tr>
-                <td><a href="#" onclick="infoDisplay(2)">Pool Party</a></td>
-                <td>Party</td>
-                <td><span>Dec 1</span></td>
-                <td><a href="#" class="avatar"></a></td>
-                <td><a href="#" class="menu"></a></td>
-
-            </tr>
-            <tr>
-                <td><a href="#" onclick="infoDisplay(3)">Charity event at Highschool</a></td>
-                <td>Event</td>
-                <td><span>Dec 3</span></td>
-                <td><a href="#" class="avatar"></a></td>
-                <td><a href="#" class="menu"></a></td>
-            </tr>
-            <tr>
-                <td><a href="#" onclick="infoDisplay(4)">HAPPY BIRtdDAY EVERYONE!</a></td>
-                <td>Party</td>
-                <td><span>Dec 22</span></td>
-                <td><a href="#" class="avatar"></a></td>
-                <td><a href="#" class="menu"></a></td>
-            </tr>
-            <tr>
-                <td><a href="#" onclick="infoDisplay(5)">Halloween Celebration for Kids</a></td>
-                <td>Event</td>
-                <td><span>Nov 1</span></td>
-                <td><a href="#" class="avatar"></a></td>
-                <td><a href="#" class="menu"></a></td>
-            </tr>
-            <tr>
+            <!-- <tr>
                 <td><a href="javascript:void(0)" onclick="infoDisplay(6)">Xmass Party for Adults...</a></td>
                 <td>Party</td>
                 <td><span>Dec 30</span></td>
                 <td><a href="#" class="avatar"></a></td>
                 <td><a href="#" class="menu"></a></td>
-            </tr>
+            </tr> -->
+
+            <!-- <div id="overlay">
+                
+                <div id="message">
+                    <a href="javascript:void(0)" id="closeButton">X</a>
+                    <h3>HEeding</h3>
+                    <p>SLFKksfjdlfjsldfksldfjsdlfsfsdfsfsdfdsfsdfsdfdfsdf.</p>
+                </div>
+            </div> -->
         </table>
 
         <script>
-            function infoDisplay(index) {
-                document.getElementsByClassName('messageDisplay')[index].style.width = '100%';
-                document.getElementById('buttonClose').style.zIndex = '7';
-                document.getElementById('buttonClose').style.visibility = 'visible';
-                // console.log(document.getElementsByClassName('messageDisplay')[0]);
-            }
 
-            function infoClose() {
-                document.getElementById('buttonClose').style.visibility= 'hidden';
-                document.getElementsByClassName('messageDisplay')[0].style.width = '0';
-                document.getElementsByClassName('messageDisplay')[0].style.overflowX = 'hidden';
+            fetch("announcements.json")
+            .then((response) => response.json())
+            .then(function(data) {
+                console.log(Object.keys(data['announcements']).length);
+
+                var tb = document.getElementById('tb');
+                var pos = [];
                 
-            }
 
-            const fs = require('fs');
+                for(var i = 0; i < Object.keys(data['announcements']).length; i++) {
+                    
+                    pos.push(data.announcements[i].title);
+                    var tr = document.createElement('tr');
+                    var td1 = document.createElement('td');
+                    var td2 = document.createElement('td');
+                    var td3 = document.createElement('td');
+                    var td4 = document.createElement('td');
+                    var td5 = document.createElement('td');
+                    var a1td = document.createElement('a');
+                    var spantd = document.createElement('span');
+                    var a4td = document.createElement('a');
+                    var a5td = document.createElement('a');
+                    
 
-            const filePath = 'announcements.json';
+                    a1td.href = 'javascript:void(0)';
+                    a4td.className = 'avatar';
+                    a5td.className = 'menu';
+                    a1td.id = i;
+                    
+                    a1td.addEventListener("click", function() {
+                        var overlay = document.createElement('div');
+                        var message = document.createElement('div');
+                        var h3 = document.createElement('h3');
+                        var p = document.createElement('p');
+                        var table = document.getElementById('tb');
+                        var closeButton = document.createElement('a');
 
-            fs.readFile(filePath, 'utf8', (err, data) => {
-                if(err) {
-                    console.log("Error reading file.");
-                    return;
+                        overlay.id = 'overlay';
+                        message.id = 'message';
+                        closeButton.href = 'javascript:void(0)';
+                        closeButton.id = 'closeButton';
+                    
+                        // console.log(data.announcements[0].title);
+                        // console.log(pos[0]);
+
+                       
+                        
+
+                        for(var j = 0; j < pos.length; j++) {
+                            var element = document.getElementById(j);
+                            var x;
+                            x = parseInt(element.id);
+                            if(x) {
+                                
+
+                                console.log(x);
+                                console.log(data.announcements[j].title);
+                                h3.innerHTML = data.announcements[j].title;
+                                p.innerHTML = data.announcements[j].description;
+                                
+                            }
+                        }
+
+                        closeButton.innerHTML = 'X';
+                        closeButton.style.textDecoration = 'none';
+                        closeButton.onclick = close;
+
+                        message.appendChild(closeButton);
+                        message.appendChild(h3);
+                        message.appendChild(p);
+                        
+                        overlay.appendChild(message);
+                        
+                        table.appendChild(overlay);
+                        document.getElementById('overlay').style.visibility = 'visible';
+
+                    });
+
+                    a1td.innerHTML = data.announcements[i].title;
+                    td2.innerHTML = data.announcements[i].category;
+                    spantd.innerHTML = data.announcements[i].date;
+                   
+                    
+
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+                    tr.appendChild(td3);
+                    tr.appendChild(td4);
+                    tr.appendChild(td5);
+                    td1.appendChild(a1td);
+                    td3.appendChild(spantd);
+                    td4.appendChild(a4td);
+                    td5.appendChild(a5td);
+
+
+                    tb.appendChild(tr);
                 }
-
-                try {
-                    const jsonData = JSON.parse(data);
+                console.log(pos);
 
 
-                } catch(error) {
-                    console.error('Error', error)
+            
+                // function infoDisplay(i, data) {
+                //     var overlay = document.createElement('div');
+                //     var message = document.createElement('div');
+                //     var h3 = document.createElement('h3');
+                //     var p = document.createElement('p');
+                //     var table = document.getElementById('tb');
+
+                //     overlay.id = 'overlay';
+                //     message.id = 'message';
+
+                //     h3.innerHTML = data.announcements[i].title;
+                //     p.innerHTML = data.announcements[i].description;
+
+                //     message.appendChild(h3);
+                //     message.appendChild(p);
+                //     overlay.appendChild(message);
+                    
+                //     table.appendChild(overlay);
+                //     document.getElementById('overlay').style.visibility = 'visible';
+                // }
+
+                function close() {
+                    document.getElementById('overlay').style.visibility = 'hidden';
                 }
             });
+
+
+            // function infoDisplay(index) {
+            //     document.getElementsByClassName('messageDisplay')[index].style.width = '100%';
+            //     document.getElementById('buttonClose').style.zIndex = '7';
+            //     document.getElementById('buttonClose').style.visibility = 'visible';
+            //     // console.log(document.getElementsByClassName('messageDisplay')[0]);
+            // }
+
+            // function infoClose() {
+            //     document.getElementById('buttonClose').style.visibility= 'hidden';
+            //     document.getElementsByClassName('messageDisplay')[0].style.width = '0';
+            //     document.getElementsByClassName('messageDisplay')[0].style.overflowX = 'hidden';
+                
+            // }
+
+            // const fs = require('fs');
+
+            // const filePath = 'announcements.json';
+
+            // fs.readFile(filePath, 'utf8', (err, data) => {
+            //     if(err) {
+            //         console.log("Error reading file.");
+            //         return;
+            //     }
+
+            //     try {
+            //         const jsonData = JSON.parse(data);
+
+
+            //     } catch(error) {
+            //         console.error('Error', error)
+            //     }
+            // });
 
         </script>
     </main>
