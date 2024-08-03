@@ -3,25 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Neighborhood Watch!</title>
+    <title>Login Page</title>
     <link rel="stylesheet" href="styleLogin.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <main class="mainRegistration">
-        <div>
-            <h1>Welcome to <span>Neighborhood Watch!</span></h1>
-            <h3>Please login to access the pages.</h3>
-        </div>
-        <div>
-            <form action="">
-                <input type="text" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button type="button">LOGIN</button>
-            </form>
-        </div>
-    </main>
+<div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+    <p id="message"></p>
+</div>
+<script src="login.js"></script>
 </body>
 </html>

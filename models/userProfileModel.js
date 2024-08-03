@@ -1,7 +1,14 @@
+// userProfileModel.js
+
 const mongoose = require('mongoose');
 
-const userSchema = mongoose.Schema(
+const userProfileSchema = mongoose.Schema(
     {
+        profile_id: {
+            type: String,
+            required: true,
+            unique: true
+        },
         username: {
             type: String,
             required: true,
@@ -23,6 +30,18 @@ const userSchema = mongoose.Schema(
         profile_picture: {
             type: String,
             default: ''
+        },
+        bio: {
+            type: String,
+            default: ''
+        },
+        first_name: {
+            type: String,
+            default: ''
+        },
+        last_name: {
+            type: String,
+            default: ''
         }
     },
     {
@@ -30,6 +49,6 @@ const userSchema = mongoose.Schema(
     }
 );
 
-const User = mongoose.model('User', userSchema);
+const UserProfile = mongoose.model('UserProfile', userProfileSchema, 'userprofiles');
 
-module.exports = User;
+module.exports = UserProfile;
