@@ -85,7 +85,9 @@
                     a5td.className = 'menu';
                     a1td.id = i;
                     
+
                     a1td.addEventListener("click", function() {
+                        
                         var overlay = document.createElement('div');
                         var message = document.createElement('div');
                         var h3 = document.createElement('h3');
@@ -100,24 +102,14 @@
                     
                         // console.log(data.announcements[0].title);
                         // console.log(pos[0]);
-
+                        console.log(this.id);
                        
-                        
+                        console.log(data.announcements[this.id]);
 
-                        for(var j = 0; j < pos.length; j++) {
-                            var element = document.getElementById(j);
-                            var x;
-                            x = parseInt(element.id);
-                            if(x) {
-                                
 
-                                console.log(x);
-                                console.log(data.announcements[j].title);
-                                h3.innerHTML = data.announcements[j].title;
-                                p.innerHTML = data.announcements[j].description;
-                                
-                            }
-                        }
+                        h3.innerHTML = data.announcements[this.id].title;
+                        p.innerHTML = data.announcements[this.id].description;
+
 
                         closeButton.innerHTML = 'X';
                         closeButton.style.textDecoration = 'none';
@@ -180,6 +172,7 @@
 
                 function close() {
                     document.getElementById('overlay').style.visibility = 'hidden';
+                    document.getElementById('overlay').remove();
                 }
             });
 
