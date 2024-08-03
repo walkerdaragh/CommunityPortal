@@ -98,7 +98,3 @@ main > div > h1 {
 .cardItemText p {
     margin: 0;
 }
-
-nav li:nth-child(1) {
-    font-weight: bold;
-}

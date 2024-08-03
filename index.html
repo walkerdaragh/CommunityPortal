@@ -12,9 +12,9 @@
             <li><a href="/index.html">Home</a></li>
             <li><a href="/localNews.html">Local News</a></li>
             <li><a href="/announcements.html">Announcements</a></li>
-            <li><a href="/marketplace.html">Marketplace</a></li>
-            <li><a href="/communityCalendar.html">Community Calendar</a></li>
-            <li><a href="/warningsPage.html">Suspicious Activity</a></li>
+            <li><a href="#">Marketplace</a></li>
+            <li><a href="#">Community Calendar</a></li>
+            <li><a href="#">Suspicious Activity</a></li>
             <li><a href="/localMap.html">Local Map</a></li>
         </ul>
     </nav>
@@ -23,51 +23,24 @@
             <h1>Thinking what to do?</h1>
             <div class="buttons">
                 <a href="/localNews.html">Check Out Current News</a>
-                <a id="cardLink" href="#">
+                <a href="#">
                     <div class="cardItem">
-                        <img id="cardImage" src="" alt="business">
+                        <img src="/360_F_415962919_gvs598wWdamZuphUvrfZag0lmYi2rL7N.jpg" alt="business">
                         <div class="cardItemText">
-                            <h3 id="cardTitle">Top 10 New Businesses Opened Last Month in Coolock!</h3>
-                            <p id="cardDesc">Check out new interesting businesses and their owners who...</p>
+                            <h3>Top 10 New Businesses Opened Last Month in Coolock!</h3>
+                            <p>Check out new interesting businesses and their owners who...</p>
                         </div>
                     </div>
                 </a>
-                <a href="/warningsPage.html">Report Suspicious Activity</a>
+                <a href="#">Report Suspicious Activity</a>
                 <a href="/announcements.html">Check Announcements</a>
-                <a href="/communityCalendar.html">Check Upcoming Events</a>
+                <a href="#">Check Upcoming Events</a>
             </div>
         </div>
         <div class="calendar">
             <a href="#"><img src="/istockphoto-181866332-612x612.jpg" alt="calendar"></a>
             
         </div>
-
-        <script>
-            async function getData() {
-                // var url = 'https://newsapi.org/v2/everything?' +
-                // 'q=Coolock&' +
-                // 'sortBy=popularity&' +
-                // 'apiKey=9bef5dcab30442d39dd5ed0a29b51d90';
-
-                fetch('https://newsapi.org/v2/everything?q=Coolock&sortBy=popularity&apiKey=9bef5dcab30442d39dd5ed0a29b51d90')
-                    .then(function(response) {
-                        return response.json();
-                    })
-                    .then(function(data) {
-
-                        var image = document.getElementById('cardImage');
-                        var title = document.getElementById('cardTitle');
-                        var desc = document.getElementById('cardDesc');
-                        var link = document.getElementById('cardLink');
-                        image.src = data.articles[0].urlToImage;
-                        title.innerHTML = data.articles[0].title;
-                        desc.innerHTML = data.articles[0].description;
-                        link.href = data.articles[0].url;
-                        
-                    });
-            }
-            getData();
-        </script>
     </main>
 </body>
 </html>
